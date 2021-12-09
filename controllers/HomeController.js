@@ -9,6 +9,7 @@ list: (req,res) => {
     lojinha: (req,res)=> {
         res.render('lojinha')
     },
+    
     home:(req,res)=> {
         res.render("home");
     },
