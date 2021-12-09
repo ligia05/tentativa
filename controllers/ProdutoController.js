@@ -1,9 +1,17 @@
-const produtos = require ('../database/MaisVendidos.json');
-
+const produtomais = require ('../database/MaisVendidos.json');
 const controller = { 
-    maisVendidos: (req,res)=>{
-         res.send(produtos);
-    }
-}
-module.exports  = controller
+    
+
+list: (req,res) => {
+    res.send(produtomais);
+},
+ 
+    lojinha: (req,res)=> {
+        res.render('lojinha')
+    },
+    home:(req,res)=> {
+        res.render("home");
+    },
+}      
+module.exports  = controller;
 
