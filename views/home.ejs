@@ -1,13 +1,9 @@
 
-  <%- include('parts/head',{title:TLINK});}
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <body>
+  <%- include('parts/head',{nome:'TLINK'})%>
+  <link href="/css/home.css" rel="stylesheet">
+  <%- include('parts/header')%>
 
-      <div class="home">
-          <%- include('/header.ejs') %>
-  </body>
-</html>
+         <%- include('parts/mainHome')%> 
+  
+       
+         <%- include('parts/footer')%> 
