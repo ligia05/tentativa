@@ -4,8 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const PrimeiraRota = require('./routes/PrimeiraRota');
-
-
+const AdmRouter = require('./routes/AdmRouter');
+const LogMiddleware = require('./Middlewares/LogMiddleware');
 const app = express();
 
 // view engine setup
@@ -17,10 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(LogMiddleware);
 app.use('/',PrimeiraRota);
-app.use('/lojinha', PrimeiraRota)
-app.use ('/lojinha/maisvendidos', PrimeiraRota)
+app.use ('/adm', AdmRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
