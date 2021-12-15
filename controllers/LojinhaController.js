@@ -11,9 +11,9 @@ const controller = {
         const idProduto = req.params.id;
         let idPrev = null;
         let idNext = null;
-     },
     
-     const produto = produtomais.find(
+    
+    const produto = produtomais.find(
         (p, i) => {
             idPrev = produtomais[i-1]==undefined?undefined:produtomais[i-1].id;
             idNext = produtomais[i+1]==undefined?undefined:produtomais[i+1].id;
@@ -30,7 +30,8 @@ const controller = {
         const produtoFiltras = produtomais.filter(
             p => p.nome.toUpperCase().includes(string.toUpperCase())
         );
- },
+        res.render('lojinha', {produtomais:produtoFiltras, busca:string});
+    },
 create: (req, res) => {
     res.render('crud-lojinha/criar')
 },
@@ -57,12 +58,11 @@ store: (req,res) => {
         );
         
         
-        res.redirect('/lojinha/maisvendidos');
+        res.redirect('/lojinha');
 
     }
-list: (req,res) => {
-    res.send(produtomais);
-},
+
+}
  
 module.exports = controller;
    

@@ -1,6 +1,6 @@
 // Importar o express
 const express = require('express');
-//const ValidadorDeFormPizza = require('../middlewares/ValidadorDeFormPizza');
+const ValidadorDeFormPizza = require('../middlewares/ValidadorDeFormPizza');
 const AdmController = require("../controllers/AdmController");
 
 const multer = require('multer');
@@ -23,8 +23,10 @@ const AdmController = require('../controllers/AdmController');
 const router = express.Router();
 
 // Definir rotas às quais ele responde
-router.get('/lojinha/cadastrar', HomeController.criar);
-router.post('/lojinha/cadastrar', upload.single('image'), ValidadorDeProduto, HomeController.store);
+router.get('/lojinha/cadastrar', LojinhaController.criar);
+router.post('/lojinha/cadastrar', upload.single('image'), ValidadorDeProduto, LojinhaController.store);
+router.get('/lojinha', LojinhaController.lojinha);
+router.get('/lojinha/maisvendidos');
 router.get('/login', AdmController.showLogin);
 router.post('/login', AdmController.login);
 
