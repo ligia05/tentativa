@@ -58,7 +58,7 @@ store: (req,res) => {
         );
         
         
-        res.redirect('/lojinha');
+        res.redirect('/lojinha/produtos');
 
     }
 

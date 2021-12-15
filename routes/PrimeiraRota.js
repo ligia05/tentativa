@@ -4,8 +4,10 @@ const router = express.Router();
 
 
 
-router.get('/', HomeController.home);
-//router.get('/lojinha', HomeController.lojinha);
-//router.get('/lojinha/maisvendidos');
+router.get('/', HomeController.listar);
+router.get('/buscarprodutos', HomeController.getInicial);
+router.get('/buscarprodutos', HomeController.busca);
+
+
 
 module.exports = router;
