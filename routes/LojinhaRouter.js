@@ -12,13 +12,13 @@ const storage = multer.diskStorage(
     }
 );
 const upload = multer({storage})
-const LojinhaController = require ('../controllers/LojinhaController')
-const router = express.Router();
 
+const router = express.Router();
+router.get('/lojinha/cadastrar', LojinhaController.criar);
+router.post('/lojinha/cadastrar', upload.single('image'), ValidadorDeProduto, LojinhaController.store);
 router.get('/lojinha/maisvendidos', LojinhaController.listar);
 router.get('/lojinha/:id', LojinhaController.getProduto);
 router.get('/lojinha/maisvendidos', LojinhaController.busca);
-router.get('/lojinha/produtos', LojinhaController.create);
 router.get('/lojinha/produtos', LojinhaController.store);
 
 module.exports = router;

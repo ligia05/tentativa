@@ -18,15 +18,13 @@ const upload = multer({storage})
 
 // Importar o PizzasController
 
-const LojinhaController = require('../controllers/LojinhaController');
+
 // Criar roteador
 const router = express.Router();
 
 // Definir rotas às quais ele responde
-router.get('/lojinha/cadastrar', LojinhaController.create);
-router.post('/lojinha/cadastrar', upload.single('image'), ValidadorDeProduto, LojinhaController.store);
 
-router.get('/lojinha/maisvendidos');
+
 router.get('/login', AdmController.showLogin);
 router.post('/login', AdmController.login);
 

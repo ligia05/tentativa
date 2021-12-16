@@ -32,19 +32,19 @@ const controller = {
         );
         res.render('lojinha', {produtomais:produtoFiltras, busca:string});
     },
-create: (req, res) => {
+criar: (req, res) => {
     res.render('crud-lojinha/criar')
 },
 
 store: (req,res) => {
-    const erros = validationResult(req);
+   const erros = validationResult(req);
         
         if(!erros.isEmpty()){
-            // return res.send(erros.mapped());
+         return res.send(erros.mapped());
             res.render('crud-lojinha/criar', {erros: erros.mapped()})
-        }
+  
         const nome = req.body.nome;
-        const ingredientes = req.body.ingredientes.split(',').map(a => a.trim());
+       const ingredientes = req.body.ingredientes.split(',').map(a => a.trim());
         const preco = Number(req.body.preco);
         const produto = {nome, ingredientes, preco, img:'/img/' + req.file.filename}
         produto.id = produtomais[produtomais.length - 1].id + 1;
@@ -53,16 +53,16 @@ store: (req,res) => {
  
         fs.writeFileSync(
             __dirname + '/../database/MaisVendidos.json',
-            JSON.stringify(pizzas, null, 4),
-            {flag:'w'}
-        );
+           JSON.stringify(produtomais, null, 4),
+         {flag:'w'}
+   );
         
         
-        res.redirect('/lojinha/produtos');
+    res.redirect('/lojinha/produtos');
 
-    }
+ }
 
 }
- 
+}
 module.exports = controller;
    
