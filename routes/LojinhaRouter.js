@@ -14,8 +14,9 @@ const storage = multer.diskStorage(
 const upload = multer({storage})
 
 const router = express.Router();
-router.get('/lojinha/cadastrar', LojinhaController.criar);
-router.post('/lojinha/cadastrar', upload.single('image'), ValidadorDeProduto, LojinhaController.store);
+router.get('/lojinha', LojinhaController.criar);
+router.get('/lojinha/criar', LojinhaController.criar);
+router.post('/lojinha/criar', upload.single('image'), ValidadorDeProduto, LojinhaController.store);
 router.get('/lojinha/maisvendidos', LojinhaController.listar);
 router.get('/lojinha/:id', LojinhaController.getProduto);
 router.get('/lojinha/maisvendidos', LojinhaController.busca);
